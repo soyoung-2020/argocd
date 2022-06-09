@@ -45,8 +45,8 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 8080
-    nodePort : 30081
-  type: NodePort
+   # nodePort : 30081
+  type: LoadBalancer
 
 ---
 kind: Service
@@ -60,5 +60,5 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 8080
-    nodePort: 30082
-  type: NodePort
+   # nodePort: 30082
+  type: LoadBalancer
