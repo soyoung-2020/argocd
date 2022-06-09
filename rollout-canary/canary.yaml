@@ -21,10 +21,6 @@ spec:
         - name: http
           containerPort: 8080
           protocol: TCP
-        resources:
-          requests:
-            memory: 32Mi
-            cpu: 5m
   strategy:
     canary:
       canaryService: canary-demo-preview
@@ -50,5 +46,19 @@ spec:
     protocol: TCP
     name: http
   tyep: LoadBalancer
+  selector:
+    app: canary-demo
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: canary-demo-preview
+spec:
+  ports:
+  - port: 80
+    targetPort: http
+    protocol: TCP
+    name: http
   selector:
     app: canary-demo
