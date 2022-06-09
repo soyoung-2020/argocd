@@ -59,7 +59,7 @@ spec:
     targetPort: 8080
   selector:
     app: demo
-  type: ClusterIP
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: Service
@@ -71,4 +71,4 @@ spec:
     targetPort: 8080
   selector:
     app: demo
-  type: ClusterIP
+  type: LoadBalancer
