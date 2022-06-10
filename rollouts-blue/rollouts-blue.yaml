@@ -1,3 +1,5 @@
+# ArgoCD Blue/Green 배포 예제
+
 apiVersion: argoproj.io/v1alpha1     # apps/v1 대신 argoproj.io/v1alpha1을 사용한다
 kind: Rollout  # Deplyment 대신 Rollout을 사용한다
 metadata:
@@ -15,8 +17,8 @@ spec:
     spec:
       containers:
       - name: rollouts-demo
-        image: argoproj/rollouts-demo:blue
-       $image: argoproj/rollouts-demo:green
+       #image: argoproj/rollouts-demo:blue
+        image: argoproj/rollouts-demo:green
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
